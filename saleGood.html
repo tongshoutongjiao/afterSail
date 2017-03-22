@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>saleGood</title>
+    <link rel="stylesheet" href="./font_kjaa0his7mu6jemi/iconfont.css">
+    <link rel="stylesheet" href="./font_a6vxxm3hqe6rbe29/iconfont.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/saleGood.css">
+</head>
+<script type="text/javascript" charset="utf-8">
+    ~function (desW) {
+        var winW = document.documentElement.clientWidth,
+            n = winW / desW,
+            oMain = document.getElementById("main");
+        if (winW > desW) {
+            oMain.style.width = desW + "px";
+            return;
+        }
+        document.documentElement.style.fontSize = n * 100 + "px";
+    }(1600);
+</script>
+<body>
+<header class="head">
+    <h1 class="system">银点商城业务管理系统 <p>v1.0.0</p></h1>
+    <ul class="left">
+        <li>
+            <p class="photo"><img src="" alt=""></p>
+          <span class="username">宣炳刚</span>
+        </li>
+        <li>
+            <i class="icon iconfont icon-kefu"></i>
+            <span class="name">客服</span>
+        </li>
+    </ul>
+    <ul class="right">
+        <li>
+            <i class="icon iconfont icon-mimaxiugai"></i>
+            <span class="name">修改密码 &nbsp;</span>
+        </li>
+        <li>
+            <i class="icon iconfont">&#xe631;</i>
+            <span class="name">注销</span>
+        </li>
+    </ul>
+
+</header>
+<section class="content">
+    <div class="leftPart">
+        <ul class="menu">
+            <li>
+                <i class="icon iconfont icon-diannao"></i>
+                <h4>个人中心
+                    <img class="direction" src="./img/forward.png" alt="">
+                </h4>
+                <ul class="detail show" style="display: none">
+                    <li class="selected">售后订单</li>
+                    <li>待拦截订单</li>
+                    <li>待审核订单</li>
+                    <li>待验货订单</li>
+                    <li>待退款订单</li>
+                    <li>待发货订单</li>
+                </ul>
+            </li>
+            <li>
+                <i class="icon iconfont icon-shouhou"></i>
+                <h4>售后管理
+                    <img class="direction" src="./img/forward.png" alt=""></h4>
+                <ul class="detail" style="display: none">
+                    <li class="selected">售后订单</li>
+                    <li>待拦截订单</li>
+                    <li>cscdad</li>
+                    <li>待验货订单</li>
+                    <li>xz 订单</li>
+                    <li>待发货订 x单</li>
+                </ul>
+            </li>
+            <li>
+                <i class="icon iconfont icon-xitongshezhi"></i>
+                <h4>系统设置
+                    <img class="direction" src="./img/forward.png" alt=""></h4>
+                <ul class="detail" style="display: none">
+                    <li class="selected">售后订单</li>
+                    <li>待拦截订xx单</li>
+                    <li>待审核订单xx</li>
+                    <li>待验货订单xx</li>
+                    <li>待退款订xs单</li>
+                    <li>待发xx货订单</li>
+                </ul>
+            </li>
+            <li>
+                <i class="icon iconfont icon-xitongshezhi"></i>
+                <h4>订单管理
+                    <img class="direction" src="./img/forward.png" alt=""></h4>
+                <ul class="detail" style="display: none">
+                    <li class="selected">售后订单</li>
+                    <li>待拦截订xx单</li>
+                    <li>待审核订单xx</li>
+                    <li>待验货订单xx</li>
+                    <li>待退款订xs单</li>
+                    <li>待发xx货订单</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="rightPart">
+            <ul id="ul">
+                <li>
+                    <input type="button" value="售后订单" class="rightPartUp select">
+                    <input type="button" value="待审核订单" class="rightPartUp">
+                    <input type="button" value="待退款订单" class="rightPartUp">
+                    <div class="close">
+                        <i class="icon iconfont">&#xe610;</i>
+                    </div>
+                    <div class="show">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <i class="icon iconfont">&#xe614;</i>
+                                    <span class="name">刷新</span>
+                                </li>
+                                <li>  <i class="icon iconfont">&#xe711;</i>
+                                    <span class="name">审核</span></li>
+                                <li><i class="icon iconfont">&#xe774;</i>
+                                    <span class="name">验货</span></li>
+                                <li><i class="icon iconfont">&#xe7da;</i>
+                                    <span class="name">退款</span></li>
+                                <li> <i class="icon iconfont">&#xe6be;</i>
+                                    <span class="name">发货</span>
+                                </li>
+                                <div>
+                                   <label for="fresh">
+                                       <input type="checkbox" id="fresh">全部</label>
+                                   <label for="cancel">
+                                       <input type="checkbox" id="cancel" value="订单取消">订单取消</label>
+                                   <label for="quit">
+                                       <input type="checkbox" id="quit" value="整单退货">
+                                       整单退货</label>
+                                   <label for="sendGoods">
+                                       <input type="checkbox" value="补发货" id="sendGoods">补发货</label>
+                                    <div>
+                                        <form action="">
+                                            <select name="cars" id="selectItem" style="text-align: center;margin-top: 8.1px;height: 100%;">
+                                                <option value="sn">订单号</option>
+                                                <option value="ship_mobile">手机号</option>
+                                                <option value="ship_name">用户姓名</option>
+                                            </select>
+                                            <input type="button" value="查询" class="query">
+                                            <input type="text" class="fill">
+                                        </form>
+                                    </div>
+                                </div>
+                            </ul>
+                        </nav>
+                        <div class="partBottom">
+                            <!--<div class="selectLeft" id="box">
+                                <ul>
+                                    <li>
+                                        <i></i><span>2017年</span>
+                                        <ul style="display: none;">
+                                            <li>
+                                                <i></i><span>3月</span>
+                                                <ul style="display: none;">
+                                                    <li>
+                                                        <span>4日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>3日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>2日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>1日</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <i></i><span>2月</span>
+                                                <ul style="display: none;">
+                                                    <li>
+                                                        <span>4日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>3日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>2日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>1日</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <i></i><span>1月</span>
+                                                <ul style="display: none;">
+                                                    <li>
+                                                        <span>4日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>3日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>2日</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>1日</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </div>-->
+                            <div class="selectRight">
+                                <div class="tableWrap">
+                                   <!-- <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>序列号</th>
+                                        <th>售后单号</th>
+                                        <th>售后类型</th>
+                                        <th>发起时间</th>
+                                        <th>订单号</th>
+                                        <th>订单金额</th>
+                                        <th>支付方式</th>
+                                        <th>物流方式</th>
+                                        <th>收货人</th>
+                                        <th>收货地址</th>
+                                        <th>状态</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2017030400001</td>
+                                        <td>订单取消</td>
+                                        <td>2017-03-04 07:53</td>
+                                        <td>148885685093-1</td>
+                                        <td>87.90</td>
+                                        <td>支付宝</td>
+                                        <td>韵达</td>
+                                        <td>宣炳刚</td>
+                                        <td>浙江-杭州市-黄岩区东城街道管驿小区12幢2单元502</td>
+                                        <td>申请驳回</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2017030400001</td>
+                                        <td>订单取消</td>
+                                        <td>2017-03-04 07:53</td>
+                                        <td>148885685093-1</td>
+                                        <td>87.90</td>
+                                        <td>支付宝</td>
+                                        <td>韵达</td>
+                                        <td>宣炳刚</td>
+                                        <td>浙江-杭州市-黄岩区东城街道管驿小区12幢2单元502</td>
+                                        <td>申请驳回</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2017030400001</td>
+                                        <td>订单取消</td>
+                                        <td>2017-03-04 07:53</td>
+                                        <td>148885685093-1</td>
+                                        <td>87.90</td>
+                                        <td>支付宝</td>
+                                        <td>韵达</td>
+                                        <td>宣炳刚</td>
+                                        <td>浙江-杭州市-黄岩区东城街道管驿小区12幢2单元502</td>
+                                        <td>申请驳回</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2017030400001</td>
+                                        <td>订单取消</td>
+                                        <td>2017-03-04 07:53</td>
+                                        <td>148885685093-1</td>
+                                        <td>87.90</td>
+                                        <td>支付宝</td>
+                                        <td>韵达</td>
+                                        <td>宣炳刚</td>
+                                        <td>浙江-杭州市-黄岩区东城街道管驿小区12幢2单元502</td>
+                                        <td>申请驳回</td>
+                                    </tr>
+                                    </tbody>
+                                </table>-->
+                                </div>
+                                <div class="selectPage">
+                                    <form class="page" action="">
+                                        <select name="" id="pageItem">
+                                            <option value="pageSize">20</option>
+                                            <option value="pageSize">30</option>
+                                            <option value="pageSize">40</option>
+                                        </select>
+                                        行/每页&nbsp;|&nbsp;共
+                                        <span class="numRange">8</span>
+                                        行&nbsp;|&nbsp;分
+                                        <span class="numPage">4</span>
+                                        页
+                                    </form>
+                                    <div class="goUp" id="#goUp">
+                                            <i class="icon iconfont back">&#xe6ad;</i>
+                                            <i class="icon iconfont go">&#xe6a9;</i>
+                                        <input type="text" value="1" class="pageNumber" >
+                                    </div>
+                                </div>
+                                <div class="bottomSection">
+                                    <input class="selected" type="button" value="订单详情" >
+                                    <input type="button" value="购物明细" >
+                                    <input type="button" value="售后日志" >
+                                    <input type="button" value="退货明细" >
+                                    <input type="button" value="退款明细" >
+                                    <div class="show">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+    </div>
+</section>
+<script type="text/javascript" charset="utf-8" src="js/jquery-3.2.0.js"></script>
+<script type="text/javascript" src="./js/md5.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/getToken.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var module=(function () {
+        var $menu = $(".menu"),
+            $h4 = $menu.find("h4"),
+            $detail = $menu.find(".detail"),
+            $detailLi=$detail.children('li'),
+            $bottomSecInp=$('.bottomSection').children('input'),
+            $direction=$('.direction'),
+            $card=$('.rightPartUp'),
+            urlName="http://192.168.1.233";
+        var urlAdd="http://192.168.1.224:6200";
+
+       /* var APPNAME = '5A3E41525B289CF0FC160E411F9B5188';
+        var  APPSIG = '0382F334BDE049519A4CDDE0A67C0821';
+        var  apptoken = token(APPNAME,APPSIG);*/
+//        左边栏下拉效果
+        function slideDown() {
+            $h4.on("click", function () {
+                var $curIndex = $(this).parent().index();
+                $(this).siblings('.detail')[0].style.display==='none'?$(this).children('img').attr('src','./img/open.png'):$(this).children('img').attr('src','./img/forward.png');
+                $detail.each(function (index, item) {
+                    if ($curIndex === index) {
+                        $(this).stop().slideToggle(200);
+                        return;
+                    }
+                    $(this).stop().slideUp(200);
+                });
+            });
+        }
+
+//      2 左边栏选择效果
+        function orderDetail() {
+           $detailLi.click(function () {
+               $(this).addClass('selected').siblings().removeClass('selected')
+           })
+        }
+
+
+
+//       3 右侧上边订单选项卡效果
+        function orderCard () {
+           $card.click(function () {
+               $(this).addClass('select').siblings().removeClass('select')
+           })
+        }
+//        4 右侧下边订单详情区域点击效果
+        function rightPartBottom() {
+           $bottomSecInp.click(function () {
+               $(this).addClass('selected').siblings().removeClass('selected')
+           })
+        }
+
+
+//        5多级菜单结构
+        function multMenu() {
+            var $box=$('#box');
+            $box.find('span').each(function () {
+                var $pre=$(this).prev();
+                if($pre[0]&&$pre[0].tagName.toLowerCase()==='em'){
+                    $(this).css('cursor','pointer')
+                }
+            });
+
+            function fn() {
+                var $par=$(this).parent();
+                var $ul=$($par.children('ul')[0]);
+                var $em=$($par.children('i')[0]);
+                if($ul.length>0){
+                    var isBlock=$ul.css('display')==='block'?true:false;
+                    $ul.slideToggle();
+                    $em.toggleClass('open');
+                    if(isBlock){
+                        $par.find('ul').css('display','none');
+                        $par.find('i').removeClass('open');
+                    }
+                }
+
+            }
+//            给$box绑定点击事件，如果事件源是i或者span的话，执行fn
+            $box.delegate("i",'click',fn);
+            $box.delegate("span",'click',fn)
+        }
+
+//        6 点击后退或者前进按钮，实现input 框中数字的加减
+        function addInp() {
+            var $pageNumber=$('.pageNumber');
+
+            var $fill=$('.fill');
+         /*   var inputVal=$.trim($fill.val());
+            var options=$("#selectItem option:selected");  //获取选中的项
+            var inputType=options.val();*/
+            $('.back').click(function () {
+
+                if($(this).parent('.goUp').children('input')[0].value>1){
+                    $(this).parent('.goUp').children('input')[0].value--;
+                }else{
+                    $(this).parent('.goUp').children('input')[0].value=1;
+                }
+                var inputVal=$.trim($fill.val());
+                var options=$("#selectItem option:selected");  //获取选中的项
+                var inputType=options.val();
+                var size=pageSelect();
+                var page=$pageNumber.val();
+                orderApi(inputType,inputVal,page,size);
+            });
+            $('.go').click(function () {
+                var maxPage=$('.numPage').text();
+                if($(this).parent('.goUp').children('input')[0].value<maxPage){
+                    $(this).parent('.goUp').children('input')[0].value++;
+                }else{
+                    $(this).parent('.goUp').children('input')[0].value=maxPage;
+                    alert('没有更多数据了');
+                }
+                var inputVal=$.trim($fill.val());
+                var options=$("#selectItem option:selected");  //获取选中的项
+                var inputType=options.val();
+                var size=pageSelect();
+                var page=$pageNumber.val();
+                orderApi(inputType,inputVal,page,size);
+            });
+        }
+
+//        点击查询按钮，要执行的操作
+        function clickQuery(page,size) {
+          var   $query=$('.query'),
+                 $fill=$('.fill'),
+              $selectItem=$('#selectItem');
+            page=page||1;
+            size=size||20;
+
+//          点击查询，获取选择中的项
+          $query.click(function () {
+              var inputVal=$.trim($fill.val());
+              var options=$("#selectItem option:selected");  //获取选中的项
+              var inputType=options.val();
+              var size=pageSelect();
+              orderApi(inputType,inputVal,page,size);
+          })
+
+
+
+//            按压enter键触发事件
+
+        }
+//
+        function pageSelect() {
+            var $page=$('.page'),
+             $select=  $page.children('select');
+            var options=$("#pageItem option:selected");  //获取选中的项
+             pageSize=options.text();
+            return pageSize;
+        }
+//订单接口
+        function orderApi(inputType,inputVal,page,size) {
+            var $numRange=$('.numRange');
+            var $numPage=$('.numPage');
+            var allLength;
+            var $tableWrap=$('.tableWrap');
+            console.log($tableWrap);
+            var str='';
+            var dat={"condition":""+inputType+"='"+inputVal+"'","page":page,size:size};
+            console.log(dat);
+            $.ajax({
+                url:urlName+'/refund/get_order_condition',
+                type:'post',
+                async:false,
+                cache:false,
+                dataType: "json",
+                data:dat,
+
+                success:function (data) {
+                    console.log(data);
+                    allLength=data.data.items;
+                    str+='<table class="table table-bordered"><thead><tr><th>序列号</th><th>售后单号</th><th>售后类型</th><th>发起时间</th><th>订单号</th><th>订单金额</th><th>支付方式</th><th>物流方式</th><th>收货人</th><th>收货地址</th><th>状态</th></tr></thead><tbody>';
+                    /*字符串拼接*/
+                    for(var i=0;i<data.data.details.length;i++){
+                        var cur=data.data.details[i];
+                        var m=i+1;
+                        str+="<tr orderId="+cur.order_id+">";
+                        str+="<td >"+m+"</td><td>2017030400001</td><td>"+cur.orderstate+"</td><td>2017-03-04 07:53</td><td>"+cur.sn+"</td><td>"+cur.order_amount+"</td><td>"+cur.payment_name+"</td><td>"+cur.delivery+"</td><td>"+cur.ship_name+"</td><td>"+cur.address+"</td><td></td>";
+                        str+='</tr>';
+                    }
+                    str+='</tbody></table>';
+                },
+                error:function (result) {
+                    console.log(result.status)
+                }
+            });
+            $tableWrap.html(str);
+            $numRange.html(allLength);
+            $numPage.html(Math.ceil(allLength/size));
+        }
+
+//        订单详情
+        function orderDetailAjax(orderId) {
+            $.ajax({
+                url:urlName+"/refund/get_fefund_detail",
+                type:'post',
+                dataType:'json',
+                data:{"orderid":orderId},
+                success:function (data) {
+                    console.log(data);
+                },error:function (data) {
+                    console.log(data.status)
+                }
+            })
+
+
+
+        }
+
+//        左侧列表接口
+        function leftBar() {
+            apptoken=localStorage.getItem('token');
+         //   console.log(apptoken);
+            $.ajax({
+              //  url:urlAdd+'moduleapi/v1.0/navigations',
+                url:' http://192.168.1.224:6200/moduleapi/v1.0/navigations',
+                type:'get',
+                async:false,
+                cache:false,
+                dataType: "json",
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": '"'+apptoken+'"'
+        },
+                success:function (data) {
+                    console.log(data);
+                },
+                error:function (result) {
+                    console.log(result.status)
+                }
+            });
+        }
+
+
+
+//
+        return {
+            init:function () {
+                slideDown();
+                orderDetail();
+                orderCard();
+                rightPartBottom();
+                multMenu();
+                addInp();
+                pageSelect();
+                clickQuery();
+                leftBar();
+            }
+        }
+    })();
+    module.init();
+
+
+
+
+
+</script>
+</body>
+</html>

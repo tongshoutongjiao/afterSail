@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银点商城业务管理系统</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background-image: url("./img/login_background.png");
+            background-repeat:no-repeat;
+            background-size:100%;
+        }
+        input{
+            outline: none;
+        }
+        .system{
+            display: block;
+            width: 100%;
+            height: 100px;
+            margin-top: 60px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bolder;
+        }
+        .part{
+            width: 760px;
+            margin-top: 60px;
+            margin-left: 340px;
+        }
+        .part div{
+            height: 60px;
+            margin-left: 15%;
+            margin-top: 40px;
+        }
+        .part div p{
+            display: inline-block;
+            font-size: 24px;
+        }
+        .part input{
+            position: absolute;
+            display: inline-block;
+            line-height: 30px;
+            width: 350px;
+            padding-left: 58px;
+            /* text-align: center; */
+            height: 60px;
+            font-size: 20px;
+            border-color: rgb(252, 245, 231);
+        }
+        .part .cancel{
+            width: 418px;
+            line-height: 30px;
+            height: 60px;
+            color: #fff;
+            background: #fe3e32;
+            list-style-type: none;
+            font-size: 24px;
+            margin-left: 94px;
+            border:1px #fe3e32 solid;
+            cursor: pointer;
+            padding-left: 0;
+            outline: none;
+        }
+        .part .department{
+            margin-left: 37.5%;
+        }
+        .part .department p{
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            -webkit-background-size: 30px 30px;
+            background-size: 30px 30px;
+            z-index: 1000;
+            margin-top: 13px;
+            margin-left: -60px;
+        }
+        .part .department p img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .part .department .branch .partName{
+            width: 180px;
+        }
+        option{
+            text-align: center;
+            outline: none;
+        }
+        .branch{
+            width: 413px;
+            padding-left: 17px;
+            line-height: 30px;
+            font-size: 18px;
+            outline: none;
+            margin-left: -73px;
+            height: 60px;
+        }
+
+        .bottom{
+            margin-top: 30px;
+            /* margin: auto; */
+            margin-left: 33%;
+        }
+        div.footer{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 30px;
+            color: lightgray;
+
+        }
+        .footer h6{
+            font-size: 18px;
+        }
+        .footer p{
+            font-size: 18px;
+
+        }
+        .count .logIn{
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            -webkit-background-size: 30px 30px;
+            background-size: 30px 30px;
+            z-index: 1000;
+            margin-top: 13px;
+            margin-left: 10px;
+        }
+        .count .logIn img{
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+        }
+        .password .passPic{
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            -webkit-background-size: 30px 30px;
+            background-size: 30px 30px;
+            z-index: 1000;
+            margin-top: 13px;
+            margin-left: 10px;
+        }
+        .password .passPic img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body >
+<hl class="system">银点商城业务管理系统</hl>
+<div class="part">
+    <div>
+        <div class="count">
+            <p class="logIn">
+                <img src="./img/login_icon_account.png" alt="">
+            </p>
+            <input id='account' type="text" class="countNum" placeholder="请输入用户名" >
+        </div>
+    </div>
+    <div>
+        <div class="password">
+            <p class="passPic">
+                <img src="./img/login_icon_password.png" alt="">
+            </p>
+            <input id = 'pwd' type="password" class="passNum" placeholder="请输入密码">
+        </div>
+    </div>
+    <div class="department" >
+            <p></p>
+            <select id = 'depart' name="branch" class="branch" >
+                <option value="volvo" class="partName">部门编号</option>
+
+            </select>
+    </div>
+    <div class="bottom">
+        <button id='login' class="cancel enter">登录</button>
+        <!--<input class="cancel" type="button" value="取消">-->
+    </div>
+</div>
+<div class="footer">
+    <h6>©2017杭州旗隆信息奇数有限公司</h6>
+    <p>版本号：V1.0.0</p>
+</div>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="./js/md5.js"></script>
+<script type="text/javascript" src="./js/getToken.js"></script>
+<script type="text/javascript">
+
+    const APPNAME = '5A3E41525B289CF0FC160E411F9B5188';
+    const APPSIG = '0382F334BDE049519A4CDDE0A67C0821';
+    $(document).ready(function(){
+        var apptoken = token(APPNAME,APPSIG);
+        localStorage.setItem('token',apptoken);
+        try{
+            $('#count').blur(function () {
+                $.ajax({
+                    url: SVR+"/organizationapi/v1.0/orgs/logindept",
+                    type: "GET",
+                    data: {
+                        "account": "test"
+                    },
+                    headers: {
+                        "Accept": "application/json",
+                        "Authorization": apptoken,
+                        "Content-Type": "application/json; charset=utf-8"
+                    }
+                })
+                    .done(function(res, textStatus, jqXHR) {
+                        var jsdata = $.parseJSON(res.data);
+                        $("#depart").empty();
+                        $.each(jsdata, function(index, value, array) {
+                            $("#depart").append("<option value="+value.ID+">"+value.Name+"</option>");
+                        });
+                    })
+                    .fail(function(jqXHR, textStatus, errorThrown) {
+                        console.log("HTTP Request Failed");
+                    })
+                    .always(function() {
+                        /* ... */
+                    });
+            });
+
+            $('#login').click(function(){
+                account = $.trim($("#account").val());
+                pwd = $.trim($("#pwd").val());
+
+                var tokenNum=token(account,pwd);
+                if(tokenNum == "ERROR")
+                {
+                    return NULL;
+                }
+                window.location.href='./saleGood.html'
+
+            });
+
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+
+    });
+    
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

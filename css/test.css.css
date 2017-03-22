@@ -1,0 +1,26 @@
+.menu {
+  margin: 20px;
+  width: 150px;
+  border: 1px solid green;
+  border-top: none;
+}
+.menu h2 {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  background: #E0F2BE;
+  border-top: 1px solid green;
+  cursor: pointer;
+}
+.detail {
+  display: none;
+  padding-left: 20px;
+}
+.detail.show {
+  display: block;
+}
+.detail li {
+  height: 30px;
+  line-height: 30px;
+}
